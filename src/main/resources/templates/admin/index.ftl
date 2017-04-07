@@ -77,6 +77,20 @@
                          </@shiro.hasPermission>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-cog"></i>
+                            <span class="nav-label">文章管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <@shiro.hasPermission name="system:article:index">
+                                <li>
+                                    <a class="J_menuItem" href="${ctx!}/admin/article/index">文章管理</a>
+                                </li>
+                            </@shiro.hasPermission>
+                        </ul>
+                    </li>
                     <li class="line dk"></li>
                 </ul>
             </div>
@@ -98,7 +112,7 @@
                                     <a href="${ctx!}/admin/logout">
                                         <div>
                                             <i class="fa fa-remove"></i> 注销
-                                            <span class="pull-right text-muted small"><@shiro.principal type="net.sppan.base.entity.User" property="userName"/></span>
+                                            <span class="pull-right text-muted small"><@shiro.principal type="com.sparrow.hadmin.entity.User" property="userName"/></span>
                                         </div>
                                     </a>
                                 </li>

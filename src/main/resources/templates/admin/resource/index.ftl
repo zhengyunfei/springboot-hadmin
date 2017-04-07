@@ -47,7 +47,7 @@
         </div>
     </div>
     <!-- 全局js -->
-	<#include "/admin/common/common.html">
+	<#include "/admin/common/common.ftl">
     <!-- 自定义js -->
     <script src="${ctx!}/hadmin/js/content.js?v=${version!}"></script>
 

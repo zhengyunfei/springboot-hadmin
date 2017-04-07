@@ -130,7 +130,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.sparrow.hdmin.Application</mainClass>
+					<mainClass>com.sparrow.hadmin.Application</mainClass>
 					<fork>true</fork>
 				</configuration>
 				<dependencies>

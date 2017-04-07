@@ -16,3 +16,5 @@ qq：799078779
 <script src="${ctx!}/hadmin/js/plugins/peity/jquery.peity.min.js"></script>
 <!-- layer -->
 <script src="${ctx!}/hadmin/js/plugins/layer/layer.min.js"></script>
+<!-- 自定义js -->
+<script src="${ctx!}/hadmin/js/content.js?v=1.0.0"></script>
