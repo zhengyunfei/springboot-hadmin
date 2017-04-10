@@ -114,20 +114,8 @@
         </div>
 
     </div>
-
-
     <!-- 全局js -->
-    <script src="${ctx!}/hadmin/js/jquery.min.js?v=2.1.4"></script>
-    <script src="${ctx!}/hadmin/js/bootstrap.min.js?v=3.3.6"></script>
-
-    <!-- 自定义js -->
-    <script src="${ctx!}/hadmin/js/content.js?v=1.0.0"></script>
-
-    <!-- jQuery Validation plugin javascript-->
-    <script src="${ctx!}/hadmin/js/plugins/validate/jquery.validate.min.js"></script>
-    <script src="${ctx!}/hadmin/js/plugins/validate/messages_zh.min.js"></script>
-    <script src="${ctx!}/hadmin/js/plugins/layer/layer.min.js"></script>
-    <script src="${ctx!}/hadmin/js/plugins/layer/laydate/laydate.js"></script>
+    <#include "/admin/common/common.ftl">
     <script type="text/javascript">
     $(document).ready(function () {
 	  	//外部js调用

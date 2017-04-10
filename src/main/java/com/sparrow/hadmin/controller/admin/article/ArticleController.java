@@ -58,7 +58,7 @@ public class ArticleController extends BaseController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String add(ModelMap map) {
-		return "admin/user/form";
+		return "admin/article/form";
 	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)

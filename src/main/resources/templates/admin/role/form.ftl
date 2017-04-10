@@ -74,15 +74,7 @@
         </div>
     </div>
     <!-- 全局js -->
-    <script src="${ctx!}/hadmin/js/jquery.min.js"></script>
-    <script src="${ctx!}/hadmin/js/bootstrap.min.js"></script>
-    <!-- 自定义js -->
-    <script src="${ctx!}/hadmin/js/content.js?v=${version!}"></script>
-    <!-- jQuery Validation plugin javascript-->
-    <script src="${ctx!}/hadmin/js/plugins/validate/jquery.validate.min.js"></script>
-    <script src="${ctx!}/hadmin/js/plugins/validate/messages_zh.min.js"></script>
-    <script src="${ctx!}/hadmin/js/plugins/layer/layer.min.js"></script>
-    <script src="${ctx!}/hadmin/js/plugins/layer/laydate/laydate.js"></script>
+    <#include "/admin/common/common.ftl">
     <script type="text/javascript">
     $(document).ready(function () {
 	    $("#frm").validate({

@@ -71,7 +71,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, Integer> implements I
 	@Override
 	public void delete(Integer id) {
 		User user = find(id);
-		Assert.state(!"admin".equals(user.getUserName()),"超级管理员用户不能删除");
+		//Assert.state(!"admin".equals(user.getUserName()),"超级管理员用户不能删除");
 		super.delete(id);
 	}
 
@@ -79,7 +79,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, Integer> implements I
 	public void grant(Integer id, String[] roleIds) {
 		User user = find(id);
 		Assert.notNull(user, "用户不存在");
-		Assert.state(!"admin".equals(user.getUserName()),"超级管理员用户不能修改管理角色");
+		//Assert.state(!"admin".equals(user.getUserName()),"超级管理员用户不能修改管理角色");
 		Role role;
 		Set<Role> roles = new HashSet<Role>();
 		if(roleIds != null){

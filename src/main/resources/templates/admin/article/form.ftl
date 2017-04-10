@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <title> - 表单验证 jQuery Validation</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-
     <link rel="shortcut icon" href="favicon.ico">
-    <link href="${ctx!}/hadmin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="${ctx!}/hadmin/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="${ctx!}/hadmin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${ctx!}/hadmin/css/font-awesome.css" rel="stylesheet">
     <link href="${ctx!}/hadmin/css/animate.css" rel="stylesheet">
-    <link href="${ctx!}/hadmin/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="${ctx!}/hadmin/css/style.css?v=${version}" rel="stylesheet">
 
 </head>
 
@@ -40,7 +35,7 @@
                         <h5>完整验证表单</h5>
                     </div>
                     <div class="ibox-content">
-                        <form class="form-horizontal m-t" id="frm" method="post" action="${ctx!}/admin/user/edit">
+                        <form class="form-horizontal m-t" id="frm" method="post" action="${ctx!}/admin/article/edit">
                         	<input type="hidden" id="id" name="id" value="${user.id}">
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">账户名：</label>
@@ -114,20 +109,8 @@
         </div>
 
     </div>
-
-
     <!-- 全局js -->
-    <script src="${ctx!}/hadmin/js/jquery.min.js?v=2.1.4"></script>
-    <script src="${ctx!}/hadmin/js/bootstrap.min.js?v=3.3.6"></script>
-
-    <!-- 自定义js -->
-    <script src="${ctx!}/hadmin/js/content.js?v=1.0.0"></script>
-
-    <!-- jQuery Validation plugin javascript-->
-    <script src="${ctx!}/hadmin/js/plugins/validate/jquery.validate.min.js"></script>
-    <script src="${ctx!}/hadmin/js/plugins/validate/messages_zh.min.js"></script>
-    <script src="${ctx!}/hadmin/js/plugins/layer/layer.min.js"></script>
-    <script src="${ctx!}/hadmin/js/plugins/layer/laydate/laydate.js"></script>
+    <#include "/admin/common/common.ftl">
     <script type="text/javascript">
     $(document).ready(function () {
 	  	//外部js调用

@@ -7,7 +7,6 @@ import com.sparrow.hadmin.service.IArticleService;
 import com.sparrow.hadmin.service.support.impl.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 
 import java.util.Date;
 
@@ -46,7 +45,7 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article, Integer> implem
 	@Override
 	public void delete(Integer id) {
 		Article article = find(id);
-		Assert.state(!"admin".equals(article.getTitle()),"超级管理员用户不能删除");
+		//Assert.state(!"admin".equals(article.getTitle()),"超级管理员用户不能删除");
 		super.delete(id);
 	}
 

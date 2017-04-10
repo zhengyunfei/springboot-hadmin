@@ -49,9 +49,6 @@
 
     <!-- 全局js -->
 	<#include "/admin/common/common.ftl">
-    <!-- 自定义js -->
-    <script src="${ctx!}/hadmin/js/content.js?v=1.0.0"></script>
-
     <!-- Page-Level Scripts -->
     <script>
         $(document).ready(function () {
