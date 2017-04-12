@@ -84,6 +84,11 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
+                        <@shiro.hasPermission name="system:article:sort:index">
+                            <li>
+                                <a class="J_menuItem" href="${ctx!}/admin/article/sort/index">分类管理</a>
+                            </li>
+                        </@shiro.hasPermission>
                             <@shiro.hasPermission name="system:article:index">
                                 <li>
                                     <a class="J_menuItem" href="${ctx!}/admin/article/index">文章管理</a>
