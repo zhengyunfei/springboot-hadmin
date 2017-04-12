@@ -107,8 +107,7 @@
 			        title: "操作",
 			        field: "empty",
                     formatter: function (value, row, index) {
-                    	var operateHtml = '<@shiro.hasPermission name="system:article:edit">
-					<button class="btn btn-primary btn-xs" type="button" onclick="edit(\''+row.id+'\')"><i class="fa fa-edit"></i>&nbsp;修改</button> &nbsp;</@shiro.hasPermission>';
+                    	var operateHtml = '<@shiro.hasPermission name="system:article:edit"> <button class="btn btn-primary btn-xs" type="button" onclick="edit(\''+row.id+'\')"><i class="fa fa-edit"></i>&nbsp;修改</button> &nbsp;</@shiro.hasPermission>';
                     	operateHtml = operateHtml + '<@shiro.hasPermission name="system:article:deleteBatch"><button class="btn btn-danger btn-xs" type="button" onclick="del(\''+row.id+'\')"><i class="fa fa-remove"></i>&nbsp;删除</button> &nbsp;</@shiro.hasPermission>';
                         return operateHtml;
                     }
@@ -121,8 +120,9 @@
         	      type: 2,
         	      title: '用户修改',
         	      shadeClose: true,
-        	      shade: false,
-        	      area: ['893px', '600px'],
+        	      shade: 0,
+				  maxmin: true,
+        	      area: ['893px', '1000px'],
         	      content: '${ctx!}/admin/article/edit/' + id,
         	      end: function(index){
         	    	  $('#table_list').bootstrapTable("refresh");
@@ -135,7 +135,8 @@
         	      title: '文章添加',
         	      shadeClose: true,
         	      shade: false,
-        	      area: ['893px', '600px'],
+				  maxmin: true, //开启最大化最小化按钮
+        	      area: ['893px', '800px'],
         	      content: '${ctx!}/admin/article/add',
         	      end: function(index){
         	    	  $('#table_list').bootstrapTable("refresh");

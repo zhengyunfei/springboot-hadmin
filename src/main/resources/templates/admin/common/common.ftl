@@ -17,4 +17,7 @@ qq：799078779
 <!-- layer -->
 <script src="${ctx!}/hadmin/js/plugins/layer/layer.min.js"></script>
 <!-- 自定义js -->
-<script src="${ctx!}/hadmin/js/content.js?v=1.0.0"></script>
+<script src="${ctx!}/hadmin/js/content.js"></script>
+<!--jquery validate-->
+<script src="${ctx!}/hadmin/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="${ctx!}/hadmin/js/plugins/validate/messages_zh.min.js"></script>

@@ -30,20 +30,27 @@ public class ArticleController extends BaseController {
 	private IUserService userService;
 	@Autowired
 	private IArticleService articleService;
-
-    /**
-     * 用户管理初始化页面
+	/**
+	 * @deprecated 初始化访问页面
+	 * @author 贤仁
+	 * @qq 799078779
+	 * @param id
+	 * @param map
 	 * @return
-     */
+	 */
 	@RequestMapping(value = { "/", "/index" })
 	public String index() {
 		return "admin/article/index";
 	}
 
-    /**
-     * 查询集合
+	/**
+	 *@deprecated  获取json数据集
+	 * @author 贤仁
+	 * @qq 799078779
+	 * @param id
+	 * @param map
 	 * @return
-     */
+	 */
 	@RequestMapping(value = { "/list" })
 	@ResponseBody
 	public Page<Article> list() {
@@ -56,11 +63,27 @@ public class ArticleController extends BaseController {
 		return page;
 	}
 
+	/**
+	 *@deprecated  新增页面初始化
+	 * @author 贤仁
+	 * @qq 799078779
+	 * @param id
+	 * @param map
+	 * @return
+	 */
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String add(ModelMap map) {
 		return "admin/article/form";
 	}
 
+	/**
+	 *@deprecated  编辑页面初始化
+	 * @author 贤仁
+	 * @qq 799078779
+	 * @param id
+	 * @param map
+	 * @return
+	 */
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public String edit(@PathVariable Integer id,ModelMap map) {
 		Article article = articleService.find(id);
@@ -68,6 +91,14 @@ public class ArticleController extends BaseController {
 		return "admin/article/form";
 	}
 
+	/**
+	 *@deprecated  新增或者编辑文章保存
+	 * @author 贤仁
+	 * @qq 799078779
+	 * @param id
+	 * @param map
+	 * @return
+	 */
 	@RequestMapping(value= {"/edit"} ,method = RequestMethod.POST)
 	@ResponseBody
 	public JsonResult edit(Article article, ModelMap map){
@@ -79,6 +110,14 @@ public class ArticleController extends BaseController {
 		return JsonResult.success();
 	}
 
+	/**
+	 *@deprecated  根据文章id删除文章信息
+	 * @author 贤仁
+	 * @qq 799078779
+	 * @param id
+	 * @param map
+	 * @return
+	 */
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
 	@ResponseBody
 	public JsonResult delete(@PathVariable Integer id,ModelMap map) {
