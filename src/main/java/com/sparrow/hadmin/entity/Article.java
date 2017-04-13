@@ -24,13 +24,16 @@ public class Article extends BaseEntity {
 	private static final long serialVersionUID = -1894163644285296223L;
 
 	/**
-	 * 角色id
+	 *id
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false)
 	private Integer id;
 
+	@ManyToOne(cascade = { CascadeType.REFRESH }, fetch = FetchType.LAZY)
+	@JoinTable(name = "tb_article_sort_relation", joinColumns = { @JoinColumn(name = "article_id") }, inverseJoinColumns = { @JoinColumn(name = "sort_id") })
+	private  ArticleSort articleSort;
 	/**
 	 * 文章标题
 	 */
@@ -58,6 +61,14 @@ public class Article extends BaseEntity {
 	 */
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	private Date updateTime;
+
+	public ArticleSort getArticleSort() {
+		return articleSort;
+	}
+
+	public void setArticleSort(ArticleSort articleSort) {
+		this.articleSort = articleSort;
+	}
 
 	public Integer getId() {
 		return id;

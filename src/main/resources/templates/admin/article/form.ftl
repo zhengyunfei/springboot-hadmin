@@ -41,9 +41,10 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">文章分类：</label>
                                 <div class="col-sm-9">
-                                    <select name="sex" class="form-control">
-                                        <option value="0" <#if user.sex == 0>selected="selected"</#if>>女</option>
-                                        <option value="1" <#if user.sex == 1>selected="selected"</#if>>男</option>
+                                    <select name="articleSort.id" class="form-control">
+                                    <#list articleSorts as sort>
+                                        <option value="${sort.id}" <#if sort.id=article.articleSort.id>selected="selected"</#if>>${sort.title}</option>
+                                    </#list>
                                     </select>
                                 </div>
                             </div>
@@ -65,8 +66,9 @@
                                 <label class="col-sm-2 control-label">状态：</label>
                                 <div class="col-sm-9">
                                 	<select name="status" class="form-control">
-                                		<option value="0" <#if article.status == 0>selected="selected"</#if>>未锁定</option>
-                                		<option value="1" <#if article.status == 1>selected="selected"</#if>>锁定</option>
+
+                                		<option value="0" <#if article.status == 0>selected="selected"</#if>>无效</option>
+                                		<option value="1" <#if article.status == 1>selected="selected"</#if>>有效</option>
                                 	</select>
                                 </div>
                             </div>

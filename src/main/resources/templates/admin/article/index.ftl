@@ -92,7 +92,20 @@
 			        title: "ID",
 			        field: "id",
 			        sortable: true
-			    },{
+			    },
+				{
+					title: "分类",
+					field: "articleSort",
+                    formatter:function (value,row,index) {
+						if (null!=row.articleSort){
+						    return row.articleSort.title;
+						}else{
+						    return "";
+						}
+                    },
+                    sortable: true
+				},
+				{
 			        title: "标题",
 			        field: "title"
 			    },{
@@ -118,11 +131,11 @@
         function edit(id){
         	layer.open({
         	      type: 2,
-        	      title: '用户修改',
+        	      title: '问修改',
         	      shadeClose: true,
         	      shade: 0,
 				  maxmin: true,
-        	      area: ['893px', '1000px'],
+        	      area: ['893px', '800px'],
         	      content: '${ctx!}/admin/article/edit/' + id,
         	      end: function(index){
         	    	  $('#table_list').bootstrapTable("refresh");
