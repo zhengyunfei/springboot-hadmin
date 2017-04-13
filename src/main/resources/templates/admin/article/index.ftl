@@ -98,7 +98,8 @@
 					field: "articleSort",
                     formatter:function (value,row,index) {
 						if (null!=row.articleSort){
-						    return row.articleSort.title;
+                           var result='<span class="badge badge-primary">'+row.articleSort.title+'</span>';
+						    return result;
 						}else{
 						    return "";
 						}
@@ -129,7 +130,7 @@
 					    title:"预览",
 						field:"yulan",
 						formatter:function (value,row) {
-							return '<a class="btn btn-danger btn-xs" type="button" href="${ctx!}/admin/article/detail/'+row.id+'" target="_blank"><i class="internet-explorer"></i>&nbsp;预览</a>';
+							return '<a class="btn btn-danger btn-xs" type="button" href="${ctx!}/blog/detail/'+row.id+'" target="_blank"><i class="internet-explorer"></i>&nbsp;预览</a>';
                         }
 					}
 

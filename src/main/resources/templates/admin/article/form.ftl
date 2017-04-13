@@ -57,9 +57,9 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">描述：</label>
                                 <div class="col-sm-9" >
-                                    <div id="description" name="description" style="height:400px;max-height:500px;">
+                                    <textarea id="description" name="description" style="height:400px;max-height:500px;">
                                         ${article.description}
-                                    </div>
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="form-group">
