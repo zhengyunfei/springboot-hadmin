@@ -45,6 +45,10 @@ public class Article extends BaseEntity {
 	private String description;
 
 	/**
+	 * 文章备注
+	 */
+	private String remark;
+	/**
 	 * 角色状态,0：正常；1：删除
 	 */
 	private Integer status;
@@ -61,6 +65,14 @@ public class Article extends BaseEntity {
 	 */
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	private Date updateTime;
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 
 	public ArticleSort getArticleSort() {
 		return articleSort;

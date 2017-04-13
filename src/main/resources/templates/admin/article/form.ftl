@@ -63,6 +63,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">备注：</label>
+                                <div class="col-sm-9" >
+                                    <textarea id="remark" class="form-control" name="remark" >${article.remark}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">状态：</label>
                                 <div class="col-sm-9">
                                 	<select name="status" class="form-control">
@@ -105,7 +111,7 @@
     	    	title: {
     	        required: true,
     	        minlength: 4,
-    	    	maxlength: 20
+    	    	maxlength: 50
     	      },
     	      	status: {
     	        required: true
@@ -121,7 +127,6 @@
                 }
             },
     	    submitHandler:function(form){
-    	        alert("成功");
     	    	$.ajax({
    	    		   type: "POST",
    	    		   dataType: "json",

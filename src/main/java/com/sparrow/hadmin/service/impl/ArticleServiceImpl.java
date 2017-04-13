@@ -35,6 +35,7 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article, Integer> implem
 			dbUser.setDescription(article.getDescription());
 			dbUser.setUpdateTime(new Date());
 			dbUser.setArticleSort(article.getArticleSort());
+			dbUser.setRemark(article.getRemark());
 			update(dbUser);
 		}else{
 			article.setCreateTime(new Date());

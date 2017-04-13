@@ -116,15 +116,24 @@
 			        title: "更新时间",
 			        field: "updateTime",
 			        sortable: true
-			    },{
-			        title: "操作",
-			        field: "empty",
-                    formatter: function (value, row, index) {
-                    	var operateHtml = '<@shiro.hasPermission name="system:article:edit"> <button class="btn btn-primary btn-xs" type="button" onclick="edit(\''+row.id+'\')"><i class="fa fa-edit"></i>&nbsp;修改</button> &nbsp;</@shiro.hasPermission>';
-                    	operateHtml = operateHtml + '<@shiro.hasPermission name="system:article:deleteBatch"><button class="btn btn-danger btn-xs" type="button" onclick="del(\''+row.id+'\')"><i class="fa fa-remove"></i>&nbsp;删除</button> &nbsp;</@shiro.hasPermission>';
-                        return operateHtml;
-                    }
-			    }]
+			    }, {
+                        title: "操作",
+                        field: "empty",
+                        formatter: function (value, row, index) {
+                            var operateHtml = '<@shiro.hasPermission name="system:article:edit"> <button class="btn btn-primary btn-xs" type="button" onclick="edit(\''+ row.id+'\')"><i class="fa fa-edit"></i>&nbsp;修改</button> &nbsp;</@shiro.hasPermission>';
+                            operateHtml = operateHtml + '<@shiro.hasPermission name="system:article:deleteBatch"><button class="btn btn-danger btn-xs" type="button" onclick="del(\''+ row.id+'\')"><i class="fa fa-remove"></i>&nbsp;删除</button> &nbsp;</@shiro.hasPermission>';
+                            return operateHtml;
+                        }
+                    },
+					{
+					    title:"预览",
+						field:"yulan",
+						formatter:function (value,row) {
+							return '<a class="btn btn-danger btn-xs" type="button" href="${ctx!}/admin/article/detail/'+row.id+'" target="_blank"><i class="internet-explorer"></i>&nbsp;预览</a>';
+                        }
+					}
+
+			    ]
 			});
         });
 
@@ -187,7 +196,7 @@
 
         function detailFormatter(index, row) {
 	        var html = [];
-	        html.push('<p><b>描述:</b> ' + row.description + '</p>');
+	        html.push('<p><b>描述:</b> ' + row.remark + '</p>');
 	        return html.join('');
 	    }
     </script>
