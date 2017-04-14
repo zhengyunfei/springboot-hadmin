@@ -87,7 +87,7 @@
     	    	title: {
     	        required: true,
     	        minlength: 1,
-    	    	maxlength: 20
+    	    	maxlength: 30
     	      },
     	      	status: {
     	        required: true

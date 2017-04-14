@@ -95,7 +95,11 @@
 			    },{
 			        title: "名称",
 			        field: "title"
-			    },{
+			    },
+                    {
+                        title: "描述",
+                        field: "description"
+                    },{
 			        title: "创建时间",
 			        field: "createTime",
 			        sortable: true

@@ -118,6 +118,10 @@
 			        field: "updateTime",
 			        sortable: true
 			    }, {
+                        title: "备注",
+                        field: "remark"
+                    },
+					{
                         title: "操作",
                         field: "empty",
                         formatter: function (value, row, index) {
