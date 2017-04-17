@@ -20,5 +20,6 @@ public interface IArticleService extends IBaseService<Article, Integer> {
 	void saveOrUpdate(Article article);
 
     void delete(Integer id);
+	java.util.List<Article> findBySortName(String sortName);
 
 }

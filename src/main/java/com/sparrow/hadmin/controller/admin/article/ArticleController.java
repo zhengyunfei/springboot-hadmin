@@ -14,11 +14,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *@deprecated  文章管理
@@ -140,4 +141,49 @@ public class ArticleController extends BaseController {
 	}
 
 
+	/**
+	 * 文章详情页面
+	 * @author:贤仁
+	 * @createDate:2017-03-28
+	 * @param model
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/detail/{id}")
+	public String detailNews(Model model, @PathVariable Integer id) {
+		Article article=articleService.find(id);
+		String str = article.getDescription();
+		//使用正则表达式检索出所有的<h2>...</h2>内容
+		if(!org.springframework.util.StringUtils.isEmpty(str)){
+		Matcher m = Pattern.compile("<h2.*?>([\\s\\S]*?)</h2>").matcher(str);
+		while(m.find()){
+			//删掉<h2></h2>中间的html标签k
+			String parstr=deleteAllHTMLTag(m.group(1));
+			//替换内容里面所有的h2标签，动态增加id
+			article.setDescription(article.getDescription().replace("<h2>"+m.group(1),"<h2 id='"+parstr+"'>"+m.group(1)));
+		}
+		}
+		model.addAttribute("bo",article);
+		return "html/blog/detail";
+
+	}
+	/**
+	 * 删除所有的HTML标签
+	 *
+	 * @param source 需要进行除HTML的文本
+	 * @return
+	 */
+	public static String deleteAllHTMLTag(String source) {
+
+		if(source == null) {
+			return "";
+		}
+
+		String s = source;
+		/** 删除普通标签  */
+		s = s.replaceAll("<(S*?)[^>]*>.*?|<.*? />", "");
+		/** 删除转义字符 */
+		s = s.replaceAll("&.{2,6}?;", "");
+		return s;
+	}
 }

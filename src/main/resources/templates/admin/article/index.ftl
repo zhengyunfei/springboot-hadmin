@@ -51,6 +51,8 @@
 	<#include "/admin/common/common.ftl">
     <!-- Page-Level Scripts -->
     <script>
+		var colors=['badge badge-info','badge badge-primary','badge badge-success',
+		'badge badge-warning','badge badge-danger'];
         $(document).ready(function () {
         	//初始化表格,动态从服务器加载数据
 			$("#table_list").bootstrapTable({
@@ -98,7 +100,8 @@
 					field: "articleSort",
                     formatter:function (value,row,index) {
 						if (null!=row.articleSort){
-                           var result='<span class="badge badge-primary">'+row.articleSort.title+'</span>';
+						    var myclass=index%5;
+                           var result='<span class="'+colors[myclass]+'">'+row.articleSort.title+'</span>';
 						    return result;
 						}else{
 						    return "";

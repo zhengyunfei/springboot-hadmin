@@ -2,6 +2,7 @@ package com.sparrow.hadmin.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.sparrow.hadmin.entity.support.BaseEntity;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -53,7 +54,7 @@ public class Article extends BaseEntity {
 	 */
 	private Integer status;
 
-
+	private String sortName;
 	/**
 	 * 创建时间
 	 */
@@ -128,5 +129,16 @@ public class Article extends BaseEntity {
 
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	public String getSortName() {
+		if(null!=articleSort&&!StringUtils.isEmpty(articleSort.getTitle())){
+			return articleSort.getTitle();
+		}
+		return "";
+	}
+
+	public void setSortName(String sortName) {
+		this.sortName = sortName;
 	}
 }

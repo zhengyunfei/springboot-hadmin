@@ -113,6 +113,8 @@ public class BlogController extends BaseController {
 	 */
 	@GetMapping("/spring-boot")
 	public String springBoot(Model model) {
+		 java.util.List<Article> list=articleService.findBySortName("Spring-Boot");
+		model.addAttribute("blogList",list);
 		return "html/blog/spring-boot";
 
 	}
