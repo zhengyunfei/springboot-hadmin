@@ -34,3 +34,6 @@ Sparrow微框架之Hadmin
     4.日期选择使用laydate插件。
     5.表单验证使用jQuery validate插件等等<br>
 
+  <br>
+  效果图
+  https://github.com/zhengyunfei/springboot-hadmin/blob/master/src/main/resources/static/effect_pic/1.png
