@@ -46,12 +46,19 @@ public class ArticleSortController extends BaseController {
 	@RequestMapping(value = { "/list" })
 	@ResponseBody
 	public Page<ArticleSort> list() {
-		SimpleSpecificationBuilder<ArticleSort> builder = new SimpleSpecificationBuilder<ArticleSort>();
-		String searchText = request.getParameter("searchText");
-		if(StringUtils.isNotBlank(searchText)){
-			builder.add("nickName", Operator.likeAll.name(), searchText);
+		Page<ArticleSort> page = null;
+		try{
+			SimpleSpecificationBuilder<ArticleSort> builder = new SimpleSpecificationBuilder<ArticleSort>();
+			String searchText = request.getParameter("searchText");
+			if(StringUtils.isNotBlank(searchText)){
+				builder.add("nickName", Operator.likeAll.name(), searchText);
+			}
+			page=articleSortService.findAll(builder.generateSpecification(), getPageRequest());
+
+		}catch (java.lang.Exception e){
+			e.printStackTrace();
 		}
-		Page<ArticleSort> page = articleSortService.findAll(builder.generateSpecification(), getPageRequest());
+
 		return page;
 	}
 

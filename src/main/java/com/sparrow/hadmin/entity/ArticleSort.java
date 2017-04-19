@@ -2,6 +2,7 @@ package com.sparrow.hadmin.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.sparrow.hadmin.entity.support.BaseEntity;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -15,7 +16,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "tb_article_sort")
-public class ArticleSort extends BaseEntity {
+public class ArticleSort extends BaseEntity{
 
 	/**
 	 *
@@ -57,6 +58,9 @@ public class ArticleSort extends BaseEntity {
 	 */
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	private Date updateTime;
+
+
+
 
 	public Integer getId() {
 		return id;

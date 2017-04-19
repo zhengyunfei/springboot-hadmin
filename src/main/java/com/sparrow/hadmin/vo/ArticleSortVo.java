@@ -1,60 +1,47 @@
-package com.sparrow.hadmin.entity;
+package com.sparrow.hadmin.vo;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.sparrow.hadmin.entity.Article;
+import com.sparrow.hadmin.entity.ArticleSort;
 import com.sparrow.hadmin.entity.support.BaseEntity;
-import org.springframework.util.StringUtils;
 
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
- * 文章表
+ * 文章分类表
  * </p>
  *
  * @author 贤名
  * @since 2016-12-28
  */
-@Entity
-@Table(name = "tb_article")
-public class Article extends BaseEntity{
+public class ArticleSortVo extends BaseEntity{
 
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = -1894163644285296223L;
 
-	/**
-	 *id
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", nullable = false)
 	private Integer id;
 
-	@ManyToOne(cascade = { CascadeType.REFRESH }, fetch = FetchType.LAZY)
-	@JoinTable(name = "tb_article_sort_relation", joinColumns = { @JoinColumn(name = "article_id") }, inverseJoinColumns = { @JoinColumn(name = "sort_id") })
-	private  ArticleSort articleSort;
 	/**
-	 * 文章标题
+	 * 分类名称
 	 */
 	private String title;
 
 	/**
-	 * 文章描述
+	 * 分类描述
 	 */
 	private String description;
 
 	/**
-	 * 文章备注
-	 */
-	private String remark;
-	/**
-	 * 角色状态,0：正常；1：删除
+	 * 状态,0：正常；1：删除
 	 */
 	private Integer status;
 
-	private String sortName;
+
 	/**
 	 * 创建时间
 	 */
@@ -67,20 +54,14 @@ public class Article extends BaseEntity{
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	private Date updateTime;
 
-	public String getRemark() {
-		return remark;
+
+	private List<Article> articleList=new ArrayList<>();
+	public List<Article> getArticleList() {
+		return articleList;
 	}
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-
-	public ArticleSort getArticleSort() {
-		return articleSort;
-	}
-
-	public void setArticleSort(ArticleSort articleSort) {
-		this.articleSort = articleSort;
+	public void setArticleList(List<Article> articleList) {
+		this.articleList = articleList;
 	}
 
 	public Integer getId() {
@@ -130,18 +111,14 @@ public class Article extends BaseEntity{
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
-
-	public String getSortName() {
-		if(null!=articleSort&&!StringUtils.isEmpty(articleSort.getTitle())){
-			return articleSort.getTitle();
-		}
-		return "";
+	public static ArticleSortVo entityToBo(ArticleSort entity){
+		ArticleSortVo vo=new ArticleSortVo();
+		vo.setId(entity.getId());
+		vo.setTitle(entity.getTitle());
+		vo.setDescription(entity.getDescription());
+		vo.setCreateTime(entity.getCreateTime());
+		vo.setUpdateTime(entity.getUpdateTime());
+		vo.setStatus(entity.getStatus());
+		return vo;
 	}
-
-	public void setSortName(String sortName) {
-		this.sortName = sortName;
-	}
-
-
-
 }

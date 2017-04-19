@@ -1,8 +1,15 @@
 package com.sparrow.hadmin.controller.blog;
+
+import com.sparrow.hadmin.api.github.MyComparator;
 import com.sparrow.hadmin.controller.BaseController;
 import com.sparrow.hadmin.entity.Article;
+import com.sparrow.hadmin.entity.ArticleSort;
 import com.sparrow.hadmin.service.IArticleService;
+import com.sparrow.hadmin.service.IArticleSortService;
 import com.sparrow.hadmin.service.specification.SimpleSpecificationBuilder;
+import com.sparrow.hadmin.vo.ArticleSortVo;
+import org.eclipse.egit.github.core.Repository;
+import org.eclipse.egit.github.core.service.RepositoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,6 +20,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,10 +30,12 @@ import java.util.regex.Pattern;
 public class BlogController extends BaseController {
 
 	private IArticleService articleService;
+	private IArticleSortService articleSortService;
 
 	@Autowired
-	public BlogController(IArticleService articleService) {
+	public BlogController(IArticleService articleService,IArticleSortService articleSortService) {
 		this.articleService = articleService;
+		this.articleSortService=articleSortService;
 	}
 
 	/**
@@ -63,6 +74,19 @@ public class BlogController extends BaseController {
 	 */
 	@GetMapping("/all")
 	public String allMyBlogPage(Model model) {
+		//查询所有博客
+		java.util.List<ArticleSortVo> resultList=new ArrayList<ArticleSortVo>();
+		java.util.List<ArticleSort> list=articleSortService.findAll();
+		for(ArticleSort articleSort:list){
+			ArticleSortVo vo=ArticleSortVo.entityToBo(articleSort);
+			String sortName=articleSort.getTitle();
+			java.util.List<Article> articleList=articleService.findBySortName(sortName);
+			if(articleList.size()>0){
+				vo.setArticleList(articleList);
+				resultList.add(vo);
+			}
+		}
+		model.addAttribute("articleSorts",resultList);
 		return "html/blog/allMyBlog";
 
 	}
@@ -77,7 +101,10 @@ public class BlogController extends BaseController {
 	 */
 	@GetMapping("/link")
 	public String link(Model model) {
-		return "html/blog/link";
+		//about article id=26
+		Article article=articleService.find(26);
+		model.addAttribute("bo",article);
+		return "html/blog/detail";
 
 	}
 	/**
@@ -89,6 +116,9 @@ public class BlogController extends BaseController {
 	 */
 	@GetMapping("/about")
 	public String about(Model model) {
+		//about article id=27
+		 Article article=articleService.find(27);
+		model.addAttribute("article",article);
 		return "html/blog/about";
 
 	}
@@ -101,6 +131,25 @@ public class BlogController extends BaseController {
 	 */
 	@GetMapping("/open-source")
 	public String openSource(Model model) {
+		//获取所有的open-source
+		final String user = "zhengyunfei";
+		final String format = "{0}) {1}- created on {2}{3}{4}{5}";
+		int count = 1;
+		java.util.List<Repository> openSources=new ArrayList<>();
+		try{
+			RepositoryService service = new RepositoryService();
+			for (Repository repo : service.getRepositories(user)){
+				openSources.add(repo);
+			}
+			MyComparator myComparator=new MyComparator();
+			Collections.sort(openSources,myComparator);
+			model.addAttribute("openSources",openSources);
+			model.addAttribute("total",openSources.size());
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+
+
 		return "html/blog/openSourceProjects";
 
 	}
