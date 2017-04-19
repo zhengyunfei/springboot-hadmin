@@ -1,6 +1,7 @@
 package com.sparrow.hadmin.controller.blog;
 
 import com.sparrow.hadmin.api.github.MyComparator;
+import com.sparrow.hadmin.common.utils.RandomUtils;
 import com.sparrow.hadmin.controller.BaseController;
 import com.sparrow.hadmin.entity.Article;
 import com.sparrow.hadmin.entity.ArticleSort;
@@ -201,6 +202,9 @@ public class BlogController extends BaseController {
 			}
 		}
 		model.addAttribute("bo",article);
+		//获取随机数，动态生成背景图
+		int randomBgPicName=RandomUtils.getRandom(0,7);
+		model.addAttribute("randomBgPicName",randomBgPicName);
 		return "html/blog/detail";
 
 	}
