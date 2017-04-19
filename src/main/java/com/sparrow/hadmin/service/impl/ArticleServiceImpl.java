@@ -47,6 +47,9 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article, Integer> implem
 		}else{
 			article.setCreateTime(new Date());
 			article.setUpdateTime(new Date());
+			ArticleSort articleSort=articleSortDao.findOne(article.getArticleSort().getId());
+			article.setArticleSort(articleSort);
+			article.setSortName(articleSort.getTitle());
 			save(article);
 		}
 	}
