@@ -184,11 +184,20 @@ public class BlogController extends BaseController {
 		//使用正则表达式检索出所有的<h2>...</h2>内容
 		if(!org.springframework.util.StringUtils.isEmpty(str)){
 			Matcher m = Pattern.compile("<h2.*?>([\\s\\S]*?)</h2>").matcher(str);
+			Matcher m3 = Pattern.compile("<h3.*?>([\\s\\S]*?)</h3>").matcher(str);
+			/*替换所有h2标签*/
 			while(m.find()){
 				//删掉<h2></h2>中间的html标签k
 				String parstr=deleteAllHTMLTag(m.group(1));
 				//替换内容里面所有的h2标签，动态增加id
 				article.setDescription(article.getDescription().replace("<h2>"+m.group(1),"<h2 id='"+parstr+"'>"+m.group(1)));
+			}
+			/*替换所有h3标签*/
+			while(m3.find()){
+				//删掉<h3></h3>中间的html标签k
+				String parstr=deleteAllHTMLTag(m3.group(1));
+				//替换内容里面所有的h2标签，动态增加id
+				article.setDescription(article.getDescription().replace("<h3>"+m3.group(1),"<h3 id='"+parstr.replace(" ","-")+"'>"+m3.group(1)));
 			}
 		}
 		model.addAttribute("bo",article);
