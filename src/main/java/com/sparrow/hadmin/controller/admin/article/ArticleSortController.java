@@ -28,7 +28,7 @@ public class ArticleSortController extends BaseController {
 	private IArticleSortService articleSortService;
 	/**
 	 * @deprecated 初始化访问页面
-	 * @author 贤仁
+	 * @author 贤名
 	 * @qq 799078779
 	 * @return
 	 */
@@ -39,7 +39,7 @@ public class ArticleSortController extends BaseController {
 
 	/**
 	 *@deprecated  获取json数据集
-	 * @author 贤仁
+	 * @author 贤名
 	 * @qq 799078779
 	 * @return
 	 */
@@ -64,7 +64,7 @@ public class ArticleSortController extends BaseController {
 
 	/**
 	 *@deprecated  新增页面初始化
-	 * @author 贤仁
+	 * @author 贤名
 	 * @qq 799078779
 	 * @param map
 	 * @return
@@ -76,7 +76,7 @@ public class ArticleSortController extends BaseController {
 
 	/**
 	 *@deprecated  编辑页面初始化
-	 * @author 贤仁
+	 * @author 贤名
 	 * @qq 799078779
 	 * @param id
 	 * @param map
@@ -91,7 +91,7 @@ public class ArticleSortController extends BaseController {
 
 	/**
 	 *@deprecated  新增或者编辑文章保存
-	 * @author 贤仁
+	 * @author 贤名
 	 * @qq 799078779
 	 * @param map
 	 * @return
@@ -109,7 +109,7 @@ public class ArticleSortController extends BaseController {
 
 	/**
 	 *@deprecated  根据文章id删除文章信息
-	 * @author 贤仁
+	 * @author 贤名
 	 * @qq 799078779
 	 * @param id
 	 * @param map

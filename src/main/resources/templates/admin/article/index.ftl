@@ -112,10 +112,14 @@
 				{
 			        title: "标题",
 			        field: "title"
-			    },{
-			        title: "创建时间",
-			        field: "createTime",
-			        sortable: true
+			    },
+				{
+					title: "作者",
+					field: "author"
+				},{
+				title: "创建时间",
+				field: "createTime",
+				sortable: true
 			    },{
 			        title: "更新时间",
 			        field: "updateTime",

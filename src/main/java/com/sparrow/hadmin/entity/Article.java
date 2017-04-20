@@ -39,7 +39,14 @@ public class Article extends BaseEntity{
 	 * 文章标题
 	 */
 	private String title;
-
+	/**
+	 * 文章作者
+	 */
+	private String author;
+	/**
+	 * 标签云
+	 */
+	private String label;
 	/**
 	 * 文章描述
 	 */
@@ -142,6 +149,19 @@ public class Article extends BaseEntity{
 		this.sortName = sortName;
 	}
 
+	public String getAuthor() {
+		return author;
+	}
 
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
 }

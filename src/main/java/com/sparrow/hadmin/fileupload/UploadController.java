@@ -19,7 +19,7 @@ import java.util.UUID;
 
 /**
  * wangeditor2图片上传
- * @author 贤仁
+ * @author 贤名
  * @createDate 2017-03-30
  */
 @Controller

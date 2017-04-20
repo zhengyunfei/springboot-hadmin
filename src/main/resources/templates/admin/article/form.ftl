@@ -55,6 +55,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">作者：</label>
+                                <div class="col-sm-9">
+                                    <input id="title" name="title" class="form-control" type="text" value="${article.author}">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">描述：</label>
                                 <div class="col-sm-9" >
                                     <textarea id="description" name="description" style="height:400px;max-height:500px;">
@@ -66,6 +72,12 @@
                                 <label class="col-sm-2 control-label">备注：</label>
                                 <div class="col-sm-9" >
                                     <textarea id="remark" class="form-control" name="remark" >${article.remark}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">标签云：</label>
+                                <div class="col-sm-9" >
+                                    <textarea id="remark" placeholder="多个标签以,号分隔" class="form-control" name="remark" >${article.label}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
