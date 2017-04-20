@@ -57,7 +57,16 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">作者：</label>
                                 <div class="col-sm-9">
-                                    <input id="title" name="title" class="form-control" type="text" value="${article.author}">
+                                    <input id="author" name="author" class="form-control" type="text" value="${article.author}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">封面图：</label>
+                                <div class="col-sm-9">
+                                    <input id="pic" name="pic" class="form-control" type="hidden" value="${article.pic}">            <#if article.pic!='' &&article.pic!=null>
+                                    <img src="${article.pic}" id="picImg" style="width: 150px;height: 100px">
+                                </#if>
+                                    <div id="uploadDIv"></div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -77,7 +86,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">标签云：</label>
                                 <div class="col-sm-9" >
-                                    <textarea id="remark" placeholder="多个标签以,号分隔" class="form-control" name="remark" >${article.label}</textarea>
+                                    <textarea id="label" placeholder="多个标签以,号分隔" class="form-control" name="label" >${article.label}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -105,6 +114,7 @@
     </div>
     <!-- 全局js -->
     <#include "/admin/common/common.ftl">
+    <#include "/admin/common/uploadimage_common.ftl">
     <!--引入wangEditor配置文件-->
     <link rel="stylesheet" type="text/css" href="${ctx!}/hadmin/js/plugins/wangEditor-2.1.23/dist/css/wangEditor.min.css"/>
     <script type="text/javascript" src="${ctx!}/hadmin/js/plugins/wangEditor-2.1.23/dist/js/wangEditor.js"></script>
@@ -153,6 +163,26 @@
    	    		});
             }
     	});
+        //上传照片
+        $('#uploadDIv').diyUpload({
+            url:'${ctx}/html5/upload.html',
+            success:function( data ) {
+                    $("#pic").val("${ctx}"+data._raw);
+                    $("#picImg").attr('src',"${ctx}"+data._raw);
+            },
+            error:function( err ) {
+                console.info( err );
+            },
+            buttonText : '上传照片',
+            chunked:true,
+            // 分片大小
+            chunkSize:1024 * 1024*2,
+            //最大上传的文件数量, 总文件大小,单个文件大小(单位字节);
+            fileNumLimit:1,
+            fileSizeLimit:10 * 1024*1024,
+            fileSingleSizeLimit:50 * 1024*1024,
+            accept: {}
+        });
     });
     </script>
 

@@ -11,7 +11,7 @@ import java.util.Date;
  * 资源表
  * </p>
  *
- * @author 贤名
+ * @author 贤云
  * @since 2016-12-28
  */
 @Entity

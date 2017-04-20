@@ -14,7 +14,7 @@ import java.util.List;
  * 文章分类表
  * </p>
  *
- * @author 贤名
+ * @author 贤云
  * @since 2016-12-28
  */
 public class ArticleSortVo extends BaseEntity{

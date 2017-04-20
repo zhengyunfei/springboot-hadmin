@@ -11,7 +11,7 @@ public class IndexController extends BaseController{
 	/**
 	 * 系统首页
 	 * /和/index都可以访问此方法
-	 * author:贤名
+	 * author:贤云
 	 * @return
 	 */
 	@RequestMapping(value={"/","/index"})

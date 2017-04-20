@@ -15,7 +15,7 @@ import java.util.Date;
  * 文章服务实现类
  * </p>
  *
- * @author 贤名
+ * @author 贤云
  * @since 2016-12-28
  */
 @Service

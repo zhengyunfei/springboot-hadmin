@@ -25,7 +25,7 @@ import java.util.Set;
  * 资源表 服务实现类
  * </p>
  *
- * @author 贤名
+ * @author 贤云
  * @since 2016-12-28
  */
 @Service

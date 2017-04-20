@@ -195,7 +195,7 @@ public class BlogController extends BaseController {
 
 	/**
 	 * 文章详情页面
-	 * @author:贤名
+	 * @author:贤云
 	 * @createDate:2017-03-28
 	 * @param model
 	 * @param id

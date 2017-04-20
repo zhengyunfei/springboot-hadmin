@@ -18,7 +18,7 @@ import java.util.List;
  * 文章服务实现类
  * </p>
  *
- * @author 贤名
+ * @author 贤云
  * @since 2016-12-28
  */
 @Service
@@ -43,6 +43,8 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article, Integer> implem
 			dbUser.setArticleSort(articleSort);
 			dbUser.setRemark(article.getRemark());
 			dbUser.setSortName(articleSort.getTitle());
+			dbUser.setAuthor(article.getAuthor());
+			dbUser.setLabel(article.getLabel());
 			update(dbUser);
 		}else{
 			article.setCreateTime(new Date());

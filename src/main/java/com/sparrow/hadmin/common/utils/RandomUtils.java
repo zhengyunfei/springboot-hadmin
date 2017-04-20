@@ -5,7 +5,7 @@ import com.sun.org.apache.xpath.internal.operations.String;
 import java.util.Random;
 
 /**
- * Created by 贤名 on 2017/4/19.
+ * Created by 贤云 on 2017/4/19.
  * 随机数产生工具类
  */
 public class RandomUtils {

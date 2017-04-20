@@ -12,7 +12,7 @@ import java.util.Date;
  * 文章表
  * </p>
  *
- * @author 贤名
+ * @author 贤云
  * @since 2016-12-28
  */
 @Entity
@@ -43,6 +43,10 @@ public class Article extends BaseEntity{
 	 * 文章作者
 	 */
 	private String author;
+	/**
+	 * 文章缩略图
+	 */
+	private String pic;
 	/**
 	 * 标签云
 	 */
@@ -163,5 +167,13 @@ public class Article extends BaseEntity{
 
 	public void setLabel(String label) {
 		this.label = label;
+	}
+
+	public String getPic() {
+		return pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
 	}
 }

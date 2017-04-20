@@ -8,7 +8,7 @@ import com.sparrow.hadmin.service.support.IBaseService;
  * 用户服务类
  * </p>
  *
- * @author 贤名
+ * @author 贤云
  * @since 2016-12-28
  */
 public interface IArticleService extends IBaseService<Article, Integer> {

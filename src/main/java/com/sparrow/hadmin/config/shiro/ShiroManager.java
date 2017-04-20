@@ -11,7 +11,7 @@ import org.springframework.context.annotation.DependsOn;
 /**
  * Shiro Config Manager.
  *
- * @author 贤名
+ * @author 贤云
  */
 public class ShiroManager {
 

@@ -116,6 +116,10 @@
 				{
 					title: "作者",
 					field: "author"
+				},
+				{
+					title: "标签云",
+					field: "label"
 				},{
 				title: "创建时间",
 				field: "createTime",

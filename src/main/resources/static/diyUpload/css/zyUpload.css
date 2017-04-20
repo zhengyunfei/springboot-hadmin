@@ -1,0 +1,304 @@
+@CHARSET "UTF-8";
+form{ font-size:84%; margin:0; line-height:1.5; color:#333; font-family:Arial, sans-serif;}
+a{color:#34538b; text-decoration:none;}
+input,select,textarea{font-size:100%;}
+#header{height:60px; padding:0 0 0 40px;}
+#header .logo{margin-top:12px; overflow:hidden; float:left;}
+#main{width:100%;overflow:hidden;}
+#main h1{line-height:40px; margin:0; text-align:center; font-size:1.3em;  font-family:'楷体','微软雅黑'; text-shadow:0px 1px 0px #f2f2f2;}
+#body{padding:0; overflow:hidden;}
+#body .part{width:50%; min-height:500px; _height:500px; background:white;}
+#code{float:left; margin-left:-1px; margin-bottom:-999em; padding-bottom:999em;}
+#effect{float:right; margin-right:-1px; margin-bottom:-999em; padding-bottom:999em;}
+#body h3{line-height:30px; margin:0; font-size:1.1em; background:#f0f3f9; padding-left:10px; border-bottom:1px solid #ededed; color:#4e4e4e; text-shadow:0px 1px 0px white;}
+#footer{line-height:1.3; padding:15px 0; border-top:1px solid #486aaa; font-family:'Lucida Grande',Verdana, Sans-Serif; text-align:center; text-shadow:1px 1px #cad5eb;}
+#footer:before{display:block; height:1px; content:'.'; background-color:#909BAF; color:#aaa; overflow:hidden; position:relative; top:-15px;}
+#footer img{margin-bottom:-3px;}
+pre{font-family:'simsun';}
+#ad{width:468px; height:60px; margin:0 auto;}
+.light{background:#f0f3f9;}
+#content{ _height:500px; background:white; border:solid #cad5eb; border-width:0 2px; font-family:'Lucida Grande',Verdana;}
+.article{font-family:Arial; padding:10px 0; font-size:0.86em; clear:both;}
+.article_new{width:960px; margin:-33px auto 0; font-family:Arial; padding:10px 0; font-size:0.86em; clear:both; text-align:right;}
+#back{margin-top:-25px; position:absolute; right:10px;}
+
+.upload_main{border-width:1px 1px 2px; border-style:solid; border-color:#ccc #ccc #ddd; background-color:#fbfbfb;}
+.upload_choose{padding:0em;}
+.upload_drag_area{display:inline-block; width:100%;  margin-left:.5em; border:0 dashed #ddd; background:#fff no-repeat 20px center; color:#999; text-align:center; vertical-align:middle;}
+.upload_drag_hover{border-color:#069; box-shadow:inset 2px 2px 4px rgba(0, 0, 0, .5); color:#333;}
+.upload_preview{ background-color:#fff; overflow:hidden; _zoom:1;}
+.upload_append_list{margin:1em; float:left; position:relative;}
+.upload_append_list:hover{cursor:pointer;}
+.upload_delete{margin-left:2em;}
+.upload_image{/* max-height:135px; */ padding:0px;}
+.upload_submit{padding-top:1em; padding-left:1em;}
+.upload_submit_btn{height:32px; font-size:14px;display:none;}
+.upload_progress{padding:5px; border-radius:10px; color:#fff; background-color:rgba(0,0,0,.6); position:absolute; left:25px; top:45px;}
+
+
+.andArea{
+	background: url("../images/add_img.png") no-repeat scroll center 5px rgba(0, 0, 0, 0);
+    border: 1px dashed #E6E6E6;
+    color: #CCCCCC;
+    font-size: 18px;
+    padding-top: 67px;
+    position: relative;
+    text-align: center;
+    top: 0;
+}
+.filePicker{
+	background: none repeat scroll 0 0 #00B7EE;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+
+    width: 90%;
+    min-width:120px;
+    margin: 0 auto 0px;
+    overflow: hidden;
+    transition: background 0.2s;
+	-moz-transition: background 0.2s;
+	-webkit-transition: background 0.2s;
+	-o-transition: background 0.2s;
+}
+.filePicker:hover{
+	background: none repeat scroll 0 0 #00A2D4;
+}
+
+.demo{
+	margin: auto;
+}
+.convent_choice{
+	float: left;
+    height: 130px;
+    width: 35%;
+}
+
+#fileImage{
+	display: none;
+}
+
+.status_bar{
+    height: 45px;
+    line-height: 45px;
+    padding: 1 10px;
+    position: relative;
+    vertical-align: middle;
+    background-color: #FFFFFF;
+}
+.info{
+	float:left;
+	color:#666666;
+	display: inline-block;
+}
+.btns{
+	position: absolute;
+	right: 16px;
+	line-height: 30px;
+    top: 6px;
+}
+.webuploader_pick{
+	-moz-user-select: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CFCFCF;
+    border-radius: 3px;
+    color: #565656;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 0 18px;
+    position: relative;
+    text-align: center;
+    line-height: 32px;
+    transition: border 0.2s;
+	-moz-transition: border 0.2s;
+	-webkit-transition: border 0.2s;
+	-o-transition: border 0.2s;
+}
+.webuploader_pick:hover{
+	border: 1px solid #BBB;
+}
+.upload_btn{
+    background: none repeat scroll 0 0 #00B7EE;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 0 18px;
+    position: relative;
+    text-align: center;
+    line-height: 34px;
+    transition: background 0.2s;
+	-moz-transition: background 0.2s;
+	-webkit-transition: background 0.2s;
+	-o-transition: background 0.2s;
+}
+.upload_btn:hover{
+	background: none repeat scroll 0 0 #00A2D4;
+}
+/* 每个图片上的操作bar */
+.file_bar{
+	margin: 0;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    top: 0px;
+    height:0px;
+    padding:0px;
+    margin: 0;
+    opacity: 0.8;
+    color:#fff;
+    background: none repeat scroll 0 0 #000000;
+    transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	overflow: hidden;
+}
+.file_bar a{
+	color: #FFFFFF;
+    position: absolute;
+    right: 10px;
+}
+.file_hover{
+	height:30px;
+	cursor:pointer;
+}
+.uploadImg{
+	margin:0px;
+	/* max-height:135px; */
+}
+.file_progress{
+	display: none;
+	margin: 0;
+	position: absolute;
+	bottom:0px;
+	height:8px;
+	left:0px;
+	right:0px;
+	background: none repeat scroll 0 0 #00B7EE;
+	text-align:center;
+	width: 0%;
+}
+.file_failure{
+	display: none;
+	margin: 0;
+	position: absolute;
+	bottom:0px;
+	height:24px;
+	left:0px;
+	right:0px;
+	background: none repeat scroll 0 0 red;
+	color:#fff;
+	text-align:center;
+}
+.file_success{
+	display: none;
+	margin: 0;
+	position: absolute;
+	bottom:0px;
+	height:40px;
+	left:0px;
+	right:0px;
+	background: url("../images/success.png") no-repeat scroll right bottom transparent;
+}
+.file_name{
+	margin:0px;
+	white-space: nowrap;
+    width: 66%;                  /* IE6 需要定义宽度 */
+    overflow: hidden;
+    -o-text-overflow: ellipsis;    /* Opera */
+    text-overflow:    ellipsis;    /* IE, Safari (WebKit) */
+    float: left;
+}
+.file_edit{
+	background: url("../images/edit_white.png") no-repeat scroll 0 0 transparent;
+	width:18px;
+	height:18px;
+	display: inline;
+	-moz-user-select: none;
+	position: absolute;
+	right:22px;
+	margin-top:4px;
+}
+.file_edit:hover{
+	background: url("../images/edit_blue.png") no-repeat scroll 0 0 transparent;
+}
+.file_del{
+	background: url("../images/delete_white.png") no-repeat scroll 0 0 transparent;
+	width:18px;
+	height:18px;
+	display: inline;
+	-moz-user-select: none;
+	position: absolute;
+	right:3px;
+	margin-top:4px;
+}
+.file_del:hover{
+	background: url("../images/delete_blue.png") no-repeat scroll 0 0 transparent;
+}
+
+/* 设置图片等比例缩放 并且垂直居中*/
+.upload_append_list a {
+	display: table-cell;
+   /*  width: 140px;
+    height: 120px; */
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #DFDFDF;
+    background: url("../images/bg.png") no-repeat scroll center 0px transparent;
+}
+.upload_append_list img {
+	border: solid 1px #66f;
+	vertical-align: middle; /*图片垂直居中*/
+}
+.uploadImg {
+	margin: auto;
+}
+.uploadImg img{
+	border:none;
+	max-width: 100%!important;
+	height: auto!important;
+}
+
+/* 不带有拖拽的样式 */
+.add_upload{
+	height:100%;
+	margin:1em;
+	float:left;
+	position:relative;
+}
+.add_upload:hover{
+	cursor:pointer;
+}
+.add_imgBox{
+    border: 1px solid #DFDFDF;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    transition: border 0.2s;
+	-moz-transition: border 0.2s;
+	-webkit-transition: border 0.2s;
+	-o-transition: border 0.2s;
+}
+.add_imgBox:hover{
+	border: 1px solid #BBB;
+}
+.single_main{
+	border-top:0px;
+}
+
+
+
+
+
+
+

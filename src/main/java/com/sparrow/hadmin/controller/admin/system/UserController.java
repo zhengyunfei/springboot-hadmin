@@ -24,7 +24,7 @@ import java.util.Set;
 
 /**
  *@deprecated  用户管理
- *@author 贤名
+ *@author 贤云
  *
  **/
 @Controller
