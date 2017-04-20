@@ -9,6 +9,7 @@ import com.sparrow.hadmin.service.IArticleService;
 import com.sparrow.hadmin.service.IArticleSortService;
 import com.sparrow.hadmin.service.specification.SimpleSpecificationBuilder;
 import com.sparrow.hadmin.vo.ArticleSortVo;
+import com.sparrow.hadmin.vo.Tags;
 import org.eclipse.egit.github.core.Repository;
 import org.eclipse.egit.github.core.service.RepositoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -242,16 +243,41 @@ public class BlogController extends BaseController {
 	 * @param model
 	 * @return
 	 */
-	@GetMapping("/tags")
-	public String tagsPage(Model model) {
+	@GetMapping(value = {"/tags/{label}"})
+	public String tagsPage(Model model,@PathVariable String label) {
 		List<Article> resultList=new ArrayList<>();
-		List<Article> articleList=articleService.findAll();
+		List<Article> articleList=articleService.findAllByLabel(label);
+		List<Tags> tags=articleService.findTags(label);
 		for(Article article:articleList ){
 			if(!StringUtils.isEmpty(article.getPic())){
 				resultList.add(article);
 			}
 		}
 		model.addAttribute("resultList",resultList);
+		model.addAttribute("tags",tags);
+		model.addAttribute("tagname",label);
+		return "html/blog/tagsClould";
+
+	}
+	/**
+	 * 标签云
+	 * @author 贤云
+	 * @createDate:2017-03-28
+	 * @param model
+	 * @return
+	 */
+	@GetMapping(value = {"/tags","/tags/","/tags.html"})
+	public String tagsPage(Model model) {
+		List<Article> resultList=new ArrayList<>();
+		List<Article> articleList=articleService.findAllByLabel("");
+		List<Tags> tags=articleService.findTags("");
+		for(Article article:articleList ){
+			if(!StringUtils.isEmpty(article.getPic())){
+				resultList.add(article);
+			}
+		}
+		model.addAttribute("resultList",resultList);
+		model.addAttribute("tags",tags);
 		return "html/blog/tagsClould";
 
 	}

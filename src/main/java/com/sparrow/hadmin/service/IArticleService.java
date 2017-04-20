@@ -2,6 +2,9 @@ package com.sparrow.hadmin.service;
 
 import com.sparrow.hadmin.entity.Article;
 import com.sparrow.hadmin.service.support.IBaseService;
+import com.sparrow.hadmin.vo.Tags;
+
+import java.util.List;
 
 /**
  * <p>
@@ -21,6 +24,6 @@ public interface IArticleService extends IBaseService<Article, Integer> {
 
     void delete(Integer id);
 	java.util.List<Article> findBySortName(String sortName);
-
-
+	List<Tags> findTags(String  tag);
+	List<Article> findAllByLabel(String label);
 }
