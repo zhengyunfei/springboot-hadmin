@@ -45,6 +45,7 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article, Integer> implem
 			dbUser.setSortName(articleSort.getTitle());
 			dbUser.setAuthor(article.getAuthor());
 			dbUser.setLabel(article.getLabel());
+			dbUser.setPic(article.getPic());
 			update(dbUser);
 		}else{
 			article.setCreateTime(new Date());

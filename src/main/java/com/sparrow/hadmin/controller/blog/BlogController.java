@@ -17,12 +17,14 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -231,6 +233,29 @@ public class BlogController extends BaseController {
 		return "html/blog/detail";
 
 	}
+
+
+	/**
+	 * 标签云
+	 * @author 贤云
+	 * @createDate:2017-03-28
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("/tags")
+	public String tagsPage(Model model) {
+		List<Article> resultList=new ArrayList<>();
+		List<Article> articleList=articleService.findAll();
+		for(Article article:articleList ){
+			if(!StringUtils.isEmpty(article.getPic())){
+				resultList.add(article);
+			}
+		}
+		model.addAttribute("resultList",resultList);
+		return "html/blog/tagsClould";
+
+	}
+
 	/**
 	 * 删除所有的HTML标签
 	 *
